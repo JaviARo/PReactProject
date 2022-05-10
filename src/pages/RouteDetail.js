@@ -5,12 +5,9 @@ import NewHeader from "../components/NewHeader";
 import NewFooter from "../components/NewFooter";
 import ScrollToTop from "../components/ScrollToTop";
 import "./RouteDetail.css";
-import { useEffect } from "react";
 
 export default function RouteDetail() {
   let { id } = useParams();
-
-  const navigate = useNavigate();
 
   const showRoute = (r) => {
     return (
@@ -27,15 +24,11 @@ export default function RouteDetail() {
     );
   }
 
-  const showVideo360 = (route, stop) => {
-    navigate(`/video-360/${route}/${stop}`);
-  }
-
   const showStop = (stop, index) => {
     return (
-      <div key={index} className="route-detail-stops" onClick={() => showVideo360(parseInt(id) + 1, index + 1)}>
+      <div key={index} className="route-detail-stops">
         <span>Parada {stop.idStop}:</span> {stop.name}
-      </div>
+      </div>       
     );
   }
 
